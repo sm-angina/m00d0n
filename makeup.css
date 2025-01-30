@@ -37,28 +37,15 @@ nav {
   border: 1px solid black;
   margin-right: 10vw;
   cursor: pointer;
+  z-index: 1;
 }
 .settings:hover {
-  animation: stretching 0.8s ease-out forwards;
   text-decoration: underline;
 }
 .settings > i {
   margin-right: 4px;
 }
 
-@keyframes stretching {
-  90% {
-    padding: 0.3rem 4rem;
-    margin-right: calc(10vw - 2rem);
-    letter-spacing: 8px;
-    font-weight: bold;
-  }
-  100% {
-    font-weight: bold;
-    padding: 0.3rem 1.5rem;
-    letter-spacing: 5px;
-  }
-}
 /* ------content------ */
 .content {
   width: 100%;
@@ -206,5 +193,47 @@ nav {
   #quote::after {
     height: 1rem;
     bottom: 5px;
+  }
+}
+
+@keyframes main-reconstract {
+  to {
+    height: 100vh;
+    width: 100vw;
+    margin-left: 0;
+    padding: 5rem;
+    background-color: #000;
+    transform: translateY(-6h);
+    border-radius: 0;
+    border: 1px solid white;
+  }
+}
+@keyframes main-reconstract-640 {
+  to {
+    height: 99svh;
+    width: 100vw;
+    margin-left: 0;
+    text-align: right;
+    padding: 2rem;
+    background-color: #000;
+    transform: translateY(20vh);
+    border-radius: 0;
+    border: none;
+  }
+}
+
+@keyframes con-reconstract {
+  to {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20%;
+    flex-direction: row;
+  }
+}
+@keyframes con-i-reconstract {
+  to {
+    margin: 0 2vw;
   }
 }
