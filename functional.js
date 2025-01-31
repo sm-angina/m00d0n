@@ -1,4 +1,4 @@
-let next = document.querySelector(".next-btn");
+let nextBtn = document.querySelector(".next-btn");
 let favBtn = document.querySelector(".fav-btn");
 let i = 0;
 let speed = 30;
@@ -16,8 +16,12 @@ function writeQuote() {
 }
 writeQuote();
 
-next.addEventListener("click", writeNext);
+nextBtn.addEventListener("click", writeNext);
 function writeNext() {
+  nextBtn.style.color = 'red'
+  setTimeout(()=>{
+    nextBtn.style.color = '#fff'
+  },1000)
   let j = Math.floor(Math.random() * quotes.length);
   qIndex = j;
   crntQuote = quotes[qIndex];
@@ -27,7 +31,7 @@ function writeNext() {
   if (crntQuote.isFav == "no") {
     favBtn.querySelector("i").style.color = "white";
   } else {
-    favBtn.querySelector("i").style.color = "var(--text)";
+    favBtn.querySelector("i").style.color = "red";
   }
 }
 
@@ -39,15 +43,15 @@ function faved() {
     crntQuote.isFav = "no";
   } else {
     localStorage.setItem(`q${qIndex}isFav`, "yes");
-    favBtn.querySelector("i").style.color = "var(--text)";
+    favBtn.querySelector("i").style.color = "red";
     crntQuote.isFav = "yes";
   }
 }
 
 if (crntQuote.isFav == "yes") {
-  favBtn.querySelector("i").style.color = "var(--text)";
+  favBtn.querySelector("i").style.color = "red";
 } else {
-  favBtn.querySelector("i").style.color = "white";
+  favBtn.querySelector("i").style.color = "#fff";
 }
 
 // -------------theme----------------
@@ -64,8 +68,10 @@ function onNightBtn() {
       document.body.style.backgroundColor = "var(--primary)";
       document.querySelector("nav").style.borderColor = "var(--border)";
       nightBtn.innerHTML = '<i class="bx bx-moon"></i>Night';
+      nightBtn.querySelector('i').style.color = 'white'
+      nightBtn.querySelector('i').style.textShadow = '1px 1px 10px white, -1px -1px 10px white'
       document.querySelector("#quote").style.color = "var(--text)";
-      nightBtn.style.color = "black";
+      nightBtn.style.color = "#fff";
     }, 500);
     isNight = "false";
     localStorage.setItem("isNight", "true");
@@ -74,18 +80,20 @@ function onNightBtn() {
     nightBtn.innerHTML = '<i class="bx bx-moon"></i>light';
     document.querySelector(".controls").style.animation = "none";
     nightBtn
-      .querySelector("i")
+    .querySelector("i")
       .animate({ transform: "rotate(740deg)" }, { duration: 2000 });
     document.querySelector("nav").style.borderColor = "transparent";
     document.body.style.backgroundColor = "#000";
     nightBtn.style.color = "white";
+    document
+      .querySelector(".controls")
+      .querySelectorAll("i")
+      .forEach((element) => (element.style.animation = "none"));
     setTimeout(() => {
       document.querySelector("#quote").style.color = "rgba(255,255,255,.8)";
+      nightBtn.querySelector('i').style.color = '#f7e6da'
+      nightBtn.querySelector('i').style.textShadow = '2px 2px 8px var(--primary), -2px -2px 8px var(--primary)'
       author.style.display = "block";
-      document
-        .querySelector(".controls")
-        .querySelectorAll("i")
-        .forEach((element) => (element.style.animation = "none"));
     }, 1500);
     isNight = "true";
     localStorage.setItem("isNight", "slight");
@@ -107,14 +115,13 @@ function onNightBtn() {
         );
       document.querySelector("#quote").style.color = "rgba(255,255,255,.8)";
       nightBtn.style.zIndex = "11";
-      nightBtn.style.color = "white";
       nightBtn.innerHTML = '<i class="bx bx-moon"></i>Slight';
       nightBtn
         .querySelector("i")
-        .animate({ transform: "rotate(740deg)" }, { duration: 2500 });
+        .animate({ transform: "rotate(740deg)" }, { duration: 2000 });
       document.body.style.backgroundColor = "#000";
       document.querySelector("nav").style.borderColor = "transparent";
-    }, 1500);
+    }, 500);
     isNight = "slight";
     localStorage.setItem("isNight", "false");
   }

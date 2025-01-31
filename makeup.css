@@ -7,6 +7,10 @@
   position: relative;
   box-sizing: border-box;
 }
+div:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
 :root {
   --primary: #dca47c;
   --text: #2e523c;
@@ -33,8 +37,10 @@ nav {
   letter-spacing: 2px;
   font-family: monospace;
   padding: 0.3rem 1.4rem;
+  background-color: #000;
+  color: white;
   border-radius: 20px;
-  border: 1px solid black;
+  border: 1px solid #fff;
   margin-right: 10vw;
   cursor: pointer;
   z-index: 1;
@@ -44,6 +50,8 @@ nav {
 }
 .settings > i {
   margin-right: 4px;
+  text-shadow: 1px 1px 8px white,
+               -1px -1px 8px white;
 }
 
 /* ------content------ */
@@ -132,11 +140,12 @@ nav {
   box-shadow: 1px 1px 1px black;
   cursor: pointer;
 }
+@media screen and (min-width: 1000px) {
+  .controls div i:hover {
+    box-shadow: 1px 1px 5px black;
+    color: red;
+  }
 
-.controls div i:hover {
-  box-shadow: 1px 1px 5px black;
-  color: red;
-  fill: #000 !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -203,7 +212,7 @@ nav {
     margin-left: 0;
     padding: 5rem;
     background-color: #000;
-    transform: translateY(-6h);
+    transform: translateY(-10vh);
     border-radius: 0;
     border: 1px solid white;
   }
@@ -212,7 +221,6 @@ nav {
   to {
     height: 99svh;
     width: 100vw;
-    margin-left: 0;
     text-align: right;
     padding: 2rem;
     background-color: #000;
@@ -227,13 +235,13 @@ nav {
     margin: 0;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-60%);
     bottom: 20%;
     flex-direction: row;
   }
 }
 @keyframes con-i-reconstract {
   to {
-    margin: 0 2vw;
+    margin: 0 clamp(20px, 6vw, 50px);
   }
 }
