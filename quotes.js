@@ -252,6 +252,12 @@ const quotes = [
     agreed: localStorage.getItem("q1Agreed") || 0,
   },
   {
+    q: "The thought of suicide is a great consolation: by means of it one gets through many a dark night.",
+    qA: friedrichNietzsche,
+    isFav: localStorage.getItem("q3isFav") || "no",
+    agreed: localStorage.getItem("q1Agreed") || 0,
+  },
+  {
     q: "Don't bend; don't water it down; don't try to make it logical; don't edit your own soul according to the fashion. Rather, follow your most intense obsessions mercilessly.",
     qA: franzKafka,
     isFav: localStorage.getItem("q3isFav") || "no",
