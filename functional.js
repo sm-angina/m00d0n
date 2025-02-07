@@ -94,7 +94,7 @@ function onNightBtn() {
       nightBtn.querySelector('i').style.color = '#f7e6da'
       nightBtn.querySelector('i').style.textShadow = '2px 2px 8px var(--primary), -2px -2px 8px var(--primary)'
       author.style.display = "block";
-    }, 1500);
+    }, 1000);
     isNight = "true";
     localStorage.setItem("isNight", "slight");
   } else {
