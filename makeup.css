@@ -131,7 +131,6 @@ nav {
   justify-content: space-between;
   color: #fff;
   transition: all 0.2s;
-  position: absolute;
 }
 .controls div i {
   background-color: rgba(255, 255, 255, 0.2);
@@ -182,6 +181,7 @@ nav {
     margin: 0;
     font-size: clamp(30px, 8vw, 70px);
     transform: translateY(300%);
+    position: absolute;
   }
   .controls div i {
     padding: 0.8rem;
