@@ -8,6 +8,10 @@ let author = document.querySelector(".qtnist");
 
 function writeQuote() {
   author.innerHTML = `<img src="data:image/${crntQuote.qA}">`;
+  document.styleSheets[0].insertRule(
+    `.qtnist::before { content: '${crntQuote.aDetails}'; }`,
+    document.styleSheets[0].cssRules.length
+  );
   if (i < crntQuote.q.length) {
     document.getElementById("quote").innerHTML += crntQuote.q.charAt(i);
     i++;
@@ -18,10 +22,10 @@ writeQuote();
 
 nextBtn.addEventListener("click", writeNext);
 function writeNext() {
-  nextBtn.style.color = 'red'
-  setTimeout(()=>{
-    nextBtn.style.color = '#fff'
-  },1000)
+  nextBtn.style.color = "red";
+  setTimeout(() => {
+    nextBtn.style.color = "#fff";
+  }, 1000);
   let j = Math.floor(Math.random() * quotes.length);
   qIndex = j;
   crntQuote = quotes[qIndex];
@@ -68,8 +72,9 @@ function onNightBtn() {
       document.body.style.backgroundColor = "var(--primary)";
       document.querySelector("nav").style.borderColor = "var(--border)";
       nightBtn.innerHTML = '<i class="bx bx-moon"></i>Night';
-      nightBtn.querySelector('i').style.color = 'white'
-      nightBtn.querySelector('i').style.textShadow = '1px 1px 10px white, -1px -1px 10px white'
+      nightBtn.querySelector("i").style.color = "white";
+      nightBtn.querySelector("i").style.textShadow =
+        "1px 1px 10px white, -1px -1px 10px white";
       document.querySelector("#quote").style.color = "var(--text)";
       nightBtn.style.color = "#fff";
     }, 500);
@@ -80,7 +85,7 @@ function onNightBtn() {
     nightBtn.innerHTML = '<i class="bx bx-moon"></i>light';
     document.querySelector(".controls").style.animation = "none";
     nightBtn
-    .querySelector("i")
+      .querySelector("i")
       .animate({ transform: "rotate(740deg)" }, { duration: 2000 });
     document.querySelector("nav").style.borderColor = "transparent";
     document.body.style.backgroundColor = "#000";
@@ -91,8 +96,9 @@ function onNightBtn() {
       .forEach((element) => (element.style.animation = "none"));
     setTimeout(() => {
       document.querySelector("#quote").style.color = "rgba(255,255,255,.8)";
-      nightBtn.querySelector('i').style.color = '#f7e6da'
-      nightBtn.querySelector('i').style.textShadow = '2px 2px 8px var(--primary), -2px -2px 8px var(--primary)'
+      nightBtn.querySelector("i").style.color = "#f7e6da";
+      nightBtn.querySelector("i").style.textShadow =
+        "2px 2px 8px var(--primary), -2px -2px 8px var(--primary)";
       author.style.display = "block";
     }, 1000);
     isNight = "true";
